@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Algebraic Puzzle Game</title>
+<style>
+body {
+  font-family: sans-serif;
+  text-align: center;
+}
+#puzzle-container {
+  margin: 20px auto;
+  width: 300px;
+}
+.puzzle-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.puzzle-item {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+input[type="number"] {
+  width: 40px;
+  height: 30px;
+  text-align: center;
+}
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+  <h1>Algebraic Puzzle Game</h1>
+
+  <label for="difficulty">Difficulty:</label>
+  <select id="difficulty">
+    <option value="easy">Easy</option>
+    <option value="medium">Medium</option>
+    <option value="hard">Hard</option>
+  </select>
+
+  <label>Operators:</label>
+  <label><input type="checkbox" id="add"> +</label>
+  <label><input type="checkbox" id="subtract"> -</label>
+  <label><input type="checkbox" id="multiply" checked> *</label>
+  <label><input type="checkbox" id="divide"> /</label>
+
+  <button onclick="generatePuzzle()">New Puzzle</button>
+
+  <div id="puzzle-container"></div>
+  <button onclick="checkAnswer()">Check Answer</button>
+  <div id="result"></div>
+
+  <script>
+    let puzzleData;
+
+    function generatePuzzle() {
+      const difficulty = document.getElementById("difficulty").value;
+      let variables, equations, range;
+
+      if (difficulty === "easy") {
+        variables = ["x", "y"];
+        equations = 2;
+        range = 10;
+      } else if (difficulty === "medium") {
+        variables = ["x", "y", "z"];
+        equations = 3;
+        range = 20;
+      } else {
+        variables = ["x", "y", "z", "w"];
+        equations = 4;
+        range = 30;
+      }
+
+      puzzleData = generateAlgebraicPuzzle(variables, equations, range);
+      displayPuzzle(puzzleData);
+    }
+
+    function generateAlgebraicPuzzle(variables, equations, range) {
+      const solution = {};
+      variables.forEach(v => solution[v] = Math.floor(Math.random() * range) + 1);
+
+      const puzzle = [];
+      for (let i = 0; i < equations; i++) {
+        const equation = {};
+        let result = 0;
+        variables.forEach(v => {
+          const coefficient = Math.floor(Math.random() * 5) + 1;
+          const availableOperators = [];
+          if (document.getElementById("add").checked) availableOperators.push(0);
+          if (document.getElementById("subtract").checked) availableOperators.push(1);
+          if (document.getElementById("multiply").checked) availableOperators.push(2);
+          if (document.getElementById("divide").checked) availableOperators.push(3);
+
+          let operation;
+          if (availableOperators.length === 0) {
+              operation = 2; // Default to multiplication
+          } else {
+              operation = availableOperators[Math.floor(Math.random() * availableOperators.length)];
+          }
+
+          equation[v] = { coefficient, operation };
+
+          if (operation === 0) {
+            result += coefficient * solution[v];
+          } else if (operation === 1) {
+            result *= coefficient * solution[v];
+          } else if (operation === 2) {
+            result += coefficient * solution[v];
+          } else {
+            result += solution[v] / coefficient;
+          }
+        });
+        puzzle.push({ equation, result });
+      }
+      return { puzzle, solution, variables };
+    }
+
+    function displayPuzzle(data) {
+      const container = document.getElementById("puzzle-container");
+      container.innerHTML = "";
+
+      data.puzzle.forEach(row => {
+        const rowDiv = document.createElement("div");
+        rowDiv.className = "puzzle-row";
+        let firstItem = true;
+        data.variables.forEach(v => {
+          if (!firstItem) {
+            const plusDiv = document.createElement("div");
+            plusDiv.className = "puzzle-item";
+            plusDiv.textContent = "+";
+            rowDiv.appendChild(plusDiv);
+          }
+          firstItem = false;
+
+          const itemDiv = document.createElement("div");
+          itemDiv.className = "puzzle-item";
+          const operation = row.equation[v].operation;
+          let operator = "";
+          if (operation === 0) operator = "+";
+          else if (operation === 1) operator = "-";
+          else if (operation === 2) operator = "*";
+          else operator = "/";
+          itemDiv.textContent = `${row.equation[v].coefficient}${operator}${v}`;
+          rowDiv.appendChild(itemDiv);
+        });
+
+        const equalsDiv = document.createElement("div");
+        equalsDiv.className = "puzzle-item";
+        equalsDiv.textContent = "=";
+        rowDiv.appendChild(equalsDiv);
+
+        const resultDiv = document.createElement("div");
+        resultDiv.className = "puzzle-item";
+        resultDiv.textContent = Math.round(row.result);
+        rowDiv.appendChild(resultDiv);
+        container.appendChild(rowDiv);
+      });
+
+      const inputRow = document.createElement("div");
+      inputRow.className = "puzzle-row";
+      data.variables.forEach(v => {
+        const variableDiv = document.createElement("div");
+        variableDiv.className = "puzzle-item";
+        variableDiv.textContent = v;
+        inputRow.appendChild(variableDiv);
+
+        const input = document.createElement("input");
+        input.type = "number";
+        input.id = `input-${v}`;
+        inputRow.appendChild(input);
+
+      });
+      container.appendChild(inputRow);
+    }
+
+    function checkAnswer() {
+      if (!puzzleData) return;
+
+      const userSolution = {};
+      puzzleData.variables.forEach(v => {
+        userSolution[v] = parseInt(document.getElementById(`input-${v}`).value);
+      });
+
+      let correct = true;
+      puzzleData.variables.forEach(v => {
+        if (userSolution[v] !== puzzleData.solution[v]) {
+          correct = false;
+        }
+      });
+
+      const resultDiv = document.getElementById("result");
+      if (correct) {
+        resultDiv.textContent = "Correct!";
+        resultDiv.style.color = "green";
+      } else {
+        resultDiv.textContent = "Incorrect. Try again.";
+        resultDiv.style.color = "red";
+      }
+    }
+
+    generatePuzzle();
+  </script>
+</body>
+</html>
