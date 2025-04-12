@@ -1,0 +1,51 @@
+ID,Name,City,Product,Details
+1,Alice,London,Laptop,High-performance
+2,Bob,Paris,Tablet,Lightweight
+3,Charlie,London,Mouse,Wireless
+4,David,New York,Keyboard,Mechanical
+5,Eve,London,Monitor,4K
+6,Frank,Paris,Webcam,1080p
+7,Grace,London,Speaker,Bluetooth
+8,Henry,New York,Headphones,Noise-cancelling
+9,Ivy,London,Charger,USB-C
+10,Jack,Paris,Adapter,HDMI
+11,Kelly,London,Cable,Ethernet
+12,Liam,New York,Docking Station,USB 3.0
+13,Mia,London,Cooling Pad,Laptop
+14,Noah,Paris,Stylus,For Tablet
+15,Olivia,London,Cleaning Kit,Electronics
+16,Peter,New York,External Drive,1TB
+17,Quinn,London,Printer,Inkjet
+18,Ryan,Paris,Scanner,Document
+19,Sophia,London,Projector,Portable
+20,Thomas,New York,VR Headset,Immersive
+21,Ursula,London,Smartwatch,Fitness
+22,Victor,Paris,Fitness Tracker,Waterproof
+23,Wendy,London,Smart Scale,Body Composition
+24,Xavier,New York,Smart Home Hub,Voice Control
+25,Yara,London,Smart Plug,Wi-Fi
+26,Zane,Paris,Smart Bulb,Color Changing
+27,Ava,London,Robot Vacuum,Self-Charging
+28,Ben,New York,Air Purifier,HEPA
+29,Chloe,London,Humidifier,Ultrasonic
+30,Daniel,Paris,Dehumidifier,Compact
+31,Ella,London,Fan,Oscillating
+32,Finn,New York,Heater,Portable
+33,Georgia,London,Coffee Maker,Programmable
+34,Harry,Paris,Kettle,Electric
+35,Isla,London,Toaster,4-Slice
+36,Jacob,New York,Blender,High-Speed
+37,Lily,London,Microwave,Countertop
+38,Mason,Paris,Oven,Toaster
+39,Nora,London,Refrigerator,Mini
+40,Owen,New York,Dishwasher,Portable
+41,Penelope,London,Washing Machine,Compact
+42,Quentin,Paris,Dryer,Portable
+43,Riley,London,Iron,Steam
+44,Samuel,New York,Sewing Machine,Electric
+45,Scarlett,London,Vacuum Cleaner,Cordless
+46,Ethan,Paris,Mop,Steam
+47,Harper,London,Broom,Electric
+48,Caleb,New York,Dustpan,Self-Emptying
+49,Violet,London,Sponge,Microfiber
+50,Gabriel,Paris,Brush,Scrub

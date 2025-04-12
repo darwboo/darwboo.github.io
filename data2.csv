@@ -1,0 +1,51 @@
+ID,Name,City,Product,Category
+3,Charlie,London,Mouse,Electronics
+5,Eve,London,Monitor,Peripherals
+8,Henry,New York,Headphones,Audio
+12,Liam,New York,Docking Station,Accessories
+17,Quinn,London,Printer,Office
+20,Thomas,New York,VR Headset,Gaming
+23,Wendy,London,Smart Scale,Health
+28,Ben,New York,Air Purifier,Appliances
+33,Georgia,London,Coffee Maker,Kitchen
+36,Jacob,New York,Blender,Appliances
+41,Penelope,London,Washing Machine,Home
+45,Scarlett,London,Vacuum Cleaner,Cleaning
+1,Alice,London,Laptop,Computers
+2,Bob,Paris,Tablet,Computers
+4,David,New York,Keyboard,Peripherals
+6,Frank,Paris,Webcam,Electronics
+7,Grace,London,Speaker,Audio
+9,Ivy,London,Charger,Accessories
+10,Jack,Paris,Adapter,Accessories
+11,Kelly,London,Cable,Accessories
+13,Mia,London,Cooling Pad,Accessories
+14,Noah,Paris,Stylus,Accessories
+15,Olivia,London,Cleaning Kit,Accessories
+16,Peter,New York,External Drive,Storage
+18,Ryan,Paris,Scanner,Office
+19,Sophia,London,Projector,Electronics
+21,Ursula,London,Smartwatch,Wearables
+22,Victor,Paris,Fitness Tracker,Wearables
+24,Xavier,New York,Smart Home Hub,Smart Home
+25,Yara,London,Smart Plug,Smart Home
+26,Zane,Paris,Smart Bulb,Smart Home
+27,Ava,London,Robot Vacuum,Cleaning
+29,Chloe,London,Humidifier,Appliances
+30,Daniel,Paris,Dehumidifier,Appliances
+31,Ella,London,Fan,Appliances
+32,Finn,New York,Heater,Appliances
+34,Harry,Paris,Kettle,Kitchen
+35,Isla,London,Toaster,Kitchen
+37,Lily,London,Microwave,Kitchen
+38,Mason,Paris,Oven,Kitchen
+39,Nora,London,Refrigerator,Kitchen
+40,Owen,New York,Dishwasher,Kitchen
+42,Quentin,Paris,Dryer,Home
+43,Riley,London,Iron,Home
+44,Samuel,New York,Sewing Machine,Home
+46,Ethan,Paris,Mop,Cleaning
+47,Harper,London,Broom,Cleaning
+48,Caleb,New York,Dustpan,Cleaning
+49,Violet,London,Sponge,Cleaning
+50,Gabriel,Paris,Brush,Cleaning

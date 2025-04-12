@@ -1,0 +1,51 @@
+ID,Email,Location,Item,Price
+1,alice@example.com,London,Laptop,1200
+5,eve@example.com,London,Monitor,350
+8,henry@example.com,New York,Headphones,200
+12,liam@example.com,New York,Docking Station,80
+17,quinn@example.com,London,Printer,150
+20,thomas@example.com,New York,VR Headset,400
+23,wendy@example.com,London,Smart Scale,50
+28,ben@example.com,New York,Air Purifier,250
+33,georgia@example.com,London,Coffee Maker,100
+36,jacob@example.com,New York,Blender,180
+41,penelope@example.com,London,Washing Machine,450
+45,scarlett@example.com,London,Vacuum Cleaner,300
+2,bob@example.com,Paris,Tablet,300
+3,charlie@example.com,London,Mouse,25
+4,david@example.com,New York,Keyboard,75
+6,frank@example.com,Paris,Webcam,50
+7,grace@example.com,London,Speaker,90
+9,ivy@example.com,London,Charger,30
+10,jack@example.com,Paris,Adapter,20
+11,kelly@example.com,London,Cable,15
+13,mia@example.com,London,Cooling Pad,20
+14,noah@example.com,Paris,Stylus,40
+15,olivia@example.com,London,Cleaning Kit,35
+16,peter@example.com,New York,External Drive,110
+18,ryan@example.com,Paris,Scanner,220
+19,sophia@example.com,London,Projector,550
+21,ursula@example.com,London,Smartwatch,180
+22,victor@example.com,Paris,Fitness Tracker,70
+24,xavier@example.com,New York,Smart Home Hub,130
+25,yara@example.com,London,Smart Plug,25
+26,zane@example.com,Paris,Smart Bulb,45
+27,ava@example.com,London,Robot Vacuum,380
+29,chloe@example.com,London,Humidifier,60
+30,daniel@example.com,Paris,Dehumidifier,160
+31,ella@example.com,London,Fan,40
+32,finn@example.com,New York,Heater,95
+34,harry@example.com,Paris,Kettle,65
+35,isla@example.com,London,Toaster,55
+37,lily@example.com,London,Microwave,120
+38,mason@example.com,Paris,Oven,280
+39,nora@example.com,London,Refrigerator,200
+40,owen@example.com,New York,Dishwasher,500
+42,quentin@example.com,Paris,Dryer,320
+43,riley@example.com,London,Iron,45
+44,samuel@example.com,New York,Sewing Machine,260
+46,ethan@example.com,Paris,Mop,35
+47,harper@example.com,London,Broom,15
+48,caleb@example.com,New York,Dustpan,10
+49,violet@example.com,London,Sponge,5
+50,gabriel@example.com,Paris,Brush,10

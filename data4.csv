@@ -1,0 +1,51 @@
+Record_ID,Full_Name,Town,Goods,Quantity
+3,Charlie,London,Mouse,1
+5,Eve,London,Monitor,1
+8,Henry,New York,Headphones,1
+12,Liam,New York,Docking Station,1
+17,Quinn,London,Printer,1
+20,Thomas,New York,VR Headset,1
+23,Wendy,London,Smart Scale,1
+28,Ben,New York,Air Purifier,1
+33,Georgia,London,Coffee Maker,1
+36,Jacob,New York,Blender,1
+41,Penelope,London,Washing Machine,1
+45,Scarlett,London,Vacuum Cleaner,1
+1,Alice,London,Laptop,1
+2,Bob,Paris,Tablet,1
+4,David,New York,Keyboard,1
+6,Frank,Paris,Webcam,1
+7,Grace,London,Speaker,1
+9,Ivy,London,Charger,1
+10,Jack,Paris,Adapter,1
+11,Kelly,London,Cable,1
+13,Mia,London,Cooling Pad,1
+14,Noah,Paris,Stylus,1
+15,Olivia,London,Cleaning Kit,1
+16,Peter,New York,External Drive,1
+18,Ryan,Paris,Scanner,1
+19,Sophia,London,Projector,1
+21,Ursula,London,Smartwatch,1
+22,Victor,Paris,Fitness Tracker,1
+24,Xavier,New York,Smart Home Hub,1
+25,Yara,London,Smart Plug,1
+26,Zane,Paris,Smart Bulb,1
+27,Ava,London,Robot Vacuum,1
+29,Chloe,London,Humidifier,1
+30,Daniel,Paris,Dehumidifier,1
+31,Ella,London,Fan,1
+32,Finn,New York,Heater,1
+34,Harry,Paris,Kettle,1
+35,Isla,London,Toaster,1
+37,Lily,London,Microwave,1
+38,Mason,Paris,Oven,1
+39,Nora,London,Refrigerator,1
+40,Owen,New York,Dishwasher,1
+42,Quentin,Paris,Dryer,1
+43,Riley,London,Iron,1
+44,Samuel,New York,Sewing Machine,1
+46,Ethan,Paris,Mop,1
+47,Harper,London,Broom,1
+48,Caleb,New York,Dustpan,1
+49,Violet,London,Sponge,1
+50,Gabriel,Paris,Brush,1
