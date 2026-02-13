@@ -6,69 +6,137 @@
     <title>DWB's Tool Suite</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 40px auto; padding: 20px; background: #f6f8fa; color: #24292f; }
-        h1 { text-align: center; border-bottom: 1px solid #d0d7de; padding-bottom: 10px; }
-        .card { background: white; padding: 24px; margin-bottom: 24px; border: 1px solid #d0d7de; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-        .card h3 { margin-top: 0; color: #0969da; }
-        .readme-preview { background: #fdfdfd; padding: 10px; border-radius: 4px; border-left: 4px solid #007bff; font-size: 0.9em; max-height: 200px; overflow-y: auto; margin: 15px 0; border: 1px solid #eee; }
-        .btn { display: inline-block; background: #2da44e; color: white; padding: 8px 16px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 14px; }
-        .btn:hover { background: #2c974b; }
-        .loading { font-style: italic; color: #666; }
+        :root {
+            --bg: #f6f8fa;
+            --card-bg: #ffffff;
+            --text: #24292f;
+            --primary: #0969da;
+            --border: #d0d7de;
+            --btn-bg: #2da44e;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0d1117;
+            --card-bg: #161b22;
+            --text: #c9d1d9;
+            --primary: #58a6ff;
+            --border: #30363d;
+            --btn-bg: #238636;
+        }
+
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; 
+            line-height: 1.6; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background: var(--bg); 
+            color: var(--text);
+            transition: background 0.3s, color 0.3s;
+        }
+
+        header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+        
+        .card { 
+            background: var(--card-bg); 
+            padding: 24px; 
+            margin-bottom: 24px; 
+            border: 1px solid var(--border); 
+            border-radius: 8px; 
+        }
+
+        .readme-preview { 
+            background: rgba(0,0,0,0.02); 
+            padding: 15px; 
+            border-radius: 6px; 
+            font-size: 0.9em; 
+            max-height: 150px; 
+            overflow-y: auto; 
+            margin: 15px 0; 
+            border: 1px solid var(--border); 
+        }
+
+        .btn { 
+            display: inline-block; 
+            background: var(--btn-bg); 
+            color: white !important; 
+            padding: 10px 20px; 
+            text-decoration: none; 
+            border-radius: 6px; 
+            font-weight: 600;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text);
+        }
+
+        .meta { font-size: 0.8em; color: #6e7781; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-    <h1>My Browser-Based Tools</h1>
+    <header>
+        <h1>My Browser Tools</h1>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌓 Toggle Theme</button>
+    </header>
 
-    <div class="card" id="excel-data-matcher">
-        <h3>📊 Excel Data Matcher</h3>
-        <div class="readme-preview" data-repo="excel_data_matcher">
-            <span class="loading">Fetching description from README...</span>
+    <div id="tools-container">
         </div>
-        <a href="https://newlatveria.github.io/excel_data_matcher/EDM.HTML" class="btn">Launch App</a>
-    </div>
-
-    <div class="card" id="doc-converter">
-        <h3>📄 Document Reference Converter</h3>
-        <div class="readme-preview" data-repo="Document-Reference-Converter">
-            <span class="loading">Fetching description from README...</span>
-        </div>
-        <a href="https://newlatveria.github.io/Document-Reference-Converter/DRC1.html" class="btn">Launch App</a>
-    </div>
-
-    <div class="card" id="email-creator">
-        <h3>📧 Bulk Email Creator</h3>
-        <div class="readme-preview" data-repo="BulkEmailCreator">
-            <span class="loading">Fetching description from README...</span>
-        </div>
-        <a href="https://newlatveria.github.io/BulkEmailCreator/bulk-email-creator-pro.html" class="btn">Launch App</a>
-    </div>
 
     <script>
-        const owner = "newlatveria";
+        const tools = [
+            { id: "risk-register", name: "⚠️ Risk Register IDB", repo: "risk-register-idb", url: "https://newlatveria.github.io/risk-register-idb/index.html" },
+            { id: "excel-matcher", name: "📊 Excel Data Matcher", repo: "excel_data_matcher", url: "https://newlatveria.github.io/excel_data_matcher/EDM.HTML" },
+            { id: "doc-conv", name: "📄 Document Reference Converter", repo: "Document-Reference-Converter", url: "https://newlatveria.github.io/Document-Reference-Converter/DRC1.html" },
+            { id: "email-bulk", name: "📧 Bulk Email Creator", repo: "BulkEmailCreator", url: "https://newlatveria.github.io/BulkEmailCreator/bulk-email-creator-pro.html" }
+        ];
 
-        async function loadReadmes() {
-            const previews = document.querySelectorAll('.readme-preview');
-            
-            for (const preview of previews) {
-                const repo = preview.getAttribute('data-repo');
-                // Path to the 'raw' version of the README on GitHub
-                const url = `https://raw.githubusercontent.com/${owner}/${repo}/main/README.md`;
+        const container = document.getElementById('tools-container');
 
-                try {
-                    const response = await fetch(url);
-                    if (!response.ok) throw new Error("Could not fetch README");
-                    const markdown = await response.text();
-                    
-                    // Use Marked.js to convert MD to HTML
-                    preview.innerHTML = marked.parse(markdown);
-                } catch (error) {
-                    preview.innerHTML = "<p><em>Could not load project description.</em></p>";
-                }
+        async function init() {
+            for (const tool of tools) {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <h3>${tool.name}</h3>
+                    <div class="readme-preview" id="readme-${tool.id}">Loading description...</div>
+                    <div class="meta" id="meta-${tool.id}"></div>
+                    <a href="${tool.url}" class="btn" aria-label="Launch ${tool.name}">Launch App</a>
+                `;
+                container.appendChild(card);
+                fetchGitHubData(tool);
             }
         }
 
-        window.onload = loadReadmes;
+        async function fetchGitHubData(tool) {
+            const owner = "newlatveria";
+            try {
+                // Fetch README
+                const readmeRes = await fetch(`https://raw.githubusercontent.com/${owner}/${tool.repo}/main/README.md`);
+                const md = await readmeRes.text();
+                document.getElementById(`readme-${tool.id}`).innerHTML = marked.parse(md);
+
+                // Fetch Repo Info (Last Updated)
+                const repoRes = await fetch(`https://api.github.com/repos/${owner}/${tool.repo}`);
+                const repoData = await repoRes.json();
+                const date = new Date(repoData.pushed_at).toLocaleDateString();
+                document.getElementById(`meta-${tool.id}`).innerText = `Last updated: ${date}`;
+            } catch (e) {
+                document.getElementById(`readme-${tool.id}`).innerText = "Project details available in the app.";
+            }
+        }
+
+        function toggleTheme() {
+            const current = document.body.getAttribute('data-theme');
+            document.body.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+        }
+
+        init();
     </script>
 </body>
 </html>
